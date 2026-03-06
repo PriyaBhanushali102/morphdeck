@@ -41,7 +41,7 @@ const Sidebar = () => {
                         <Presentation size={18} strokeWidth={2.5} />
                     </div>
                     <h1 className="text-lg font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
-                        PPT<span className="text-primary">Gen</span>
+                        Morph<span className="text-primary">Deck</span>
                     </h1>
                 </Link>
             </div>
