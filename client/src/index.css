@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --- LIGHT MODE (Crisp & Clean) --- */
+    --background: 0 0% 100%;      
+    --foreground: 222.2 47.4% 11.2%; 
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    
+    --primary: 221.2 83.2% 53.3%; 
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96.1%;   
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* --- DARK MODE (Premium Deep Slate) --- */
+    
+    --background: 222 15% 8%;      
+    --foreground: 210 40% 98%;  
+    
+    --card: 222 15% 10%;          
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222 15% 10%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 217 91% 60%;       
+    --primary-foreground: 222 47.4% 11.2%;
+    
+    --secondary: 217 15% 15%;    
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 15% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217 15% 18%;        
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 15% 15%;        
+    --input: 217 15% 15%;
+    --ring: 224 76% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+   ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+.moveable-control-box {
+    z-index: 9999 !important;
+}
+
+.moveable-control {
+    background: #3b82f6 !important; 
+    border: 2px solid white !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-top: -7px !important;
+    margin-left: -7px !important;
+}
+
+.moveable-line {
+    background: #3b82f6 !important;
+    width: 2px !important;
+}
+
+/* Ensure the rotation handle (top dot) is visible */
+.moveable-origin {
+    background: #3b82f6 !important;
+}
