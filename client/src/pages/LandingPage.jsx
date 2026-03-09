@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar, Hero, Stats, Features, HowItWorks, Pricing, CtaBanner, Footer } from "@/components/landing/sections";
+import { Navbar, Hero, Stats, Features, HowItWorks, Pricing, CtaBanner, Footer } from "@/components/landing/Sections";
 import { PLACEHOLDERS } from "@/config/editorConstants"
 import GLOBAL_CSS from "@/globalcss";
 
