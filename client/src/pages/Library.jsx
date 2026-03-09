@@ -53,7 +53,7 @@ const Library = () => {
       ) : ppts.length === 0 ? (
         <div className="text-center mt-20 text-muted-foreground">
           <p>You haven't created any presentations yet.</p>
-          <Link to="/"><Button className="mt-4">Create New</Button></Link>
+          <Link to="/home"><Button className="mt-4">Create New</Button></Link>
         </div>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">

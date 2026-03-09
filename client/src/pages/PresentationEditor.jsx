@@ -30,8 +30,6 @@ const PresentationEditor = () => {
   const { state: ppt, set: setPpt, undo, redo } = useUndoRedo(null);
   const { addSlide, deleteSlide } = useSlideManager(ppt, setPpt, activeIndex, setActiveIndex);
   const isViewMode = location.pathname.includes("/view");
-  console.log("pathname:", location.pathname, "isViewMode:", isViewMode); // ← add
-
   
   useEffect(() => {
     if (ppt?.topic) {
@@ -254,7 +252,7 @@ const PresentationEditor = () => {
   }
 
   const handleShare = () => {
-     const viewUrl = `${window.location.origin}/view/${id}`;
+    const viewUrl = `${window.location.origin}/view/${id}`;
     navigator.clipboard.writeText(viewUrl);
     toast.success("Link copied to clipboard!");
   };
@@ -278,9 +276,7 @@ const PresentationEditor = () => {
     const loadingToast = toast.loading("Uploading image...");
 
     try {
-      
       const data = await uploadImage(formData);
-
       if (data.success) {
         setIsDirty(true);
         setPpt((prev) => {
@@ -405,7 +401,6 @@ const PresentationEditor = () => {
         </div>
       )}
       
-      {/* MAIN WORKSPACE */}
       <div className="flex flex-1 min-h-0 overflow-hidden">
         <div className={`
             border-r bg-muted/30 flex-col h-full transition-all duration-300 ease-in-out

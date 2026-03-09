@@ -17,7 +17,6 @@ const Sidebar = () => {
     const lastFetched = useHistoryStore((state) => state.lastFetched);
     const fetchHistory = useHistoryStore((state) => state.fetchHistory);
 
-
     useEffect(() => {
         const isStale = !lastFetched || Date.now() - lastFetched > STALE_AFTER_MS;
         if (isStale) {
@@ -36,7 +35,7 @@ const Sidebar = () => {
         <div className="h-full w-full flex flex-col border-r border-border/50 bg-card/80 backdrop-blur-xl transition-colors duration-300">
             
             <div className="h-16 flex items-center px-4 border-b border-border/50 shrink-0">
-                <Link to="/" className="flex items-center gap-3 group">
+                <Link to="/home" className="flex items-center gap-3 group">
                     <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground shadow-sm shadow-primary/20">
                         <Presentation size={18} strokeWidth={2.5} />
                     </div>
@@ -47,7 +46,7 @@ const Sidebar = () => {
             </div>
 
             <div className="p-4 pb-2 shrink-0">
-                <Link to="/">
+                <Link to="/home">
                     <button className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2.5 rounded-lg font-medium text-sm transition-all shadow-md shadow-primary/20 active:scale-95">
                         <Plus size={18} />
                         <span>New Presentation</span>

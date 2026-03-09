@@ -3,7 +3,6 @@ import { getThemeById } from "@/config/themes";
 import SlideCardEditor from "./slideCard/SlideCardEditor";
 import SlideCardReadOnly from "./slideCard/SlideCardReadOnly";
 
-//  Layout Helpers 
 const getLayoutClasses = (layout) => {
   switch (layout) {
     case "split_right":
@@ -33,7 +32,6 @@ const getLayoutClasses = (layout) => {
   }
 };
 
-// Main Component 
 const SlideCard = ({
   slide, index, totalSlides, onUpdate,
   themeId = "modern_blue", readOnly = false,

@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 const ChatInput = ({ onSend, loading }) => {
   const [text, setText] = useState("");
-  const textareaRef     = useRef(null);
+  const textareaRef = useRef(null);
 
   useEffect(() => {
     if (textareaRef.current) {

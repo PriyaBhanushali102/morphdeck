@@ -13,7 +13,6 @@ const SlideCarousel = ({ slides, activeIndex, customThemeData, onSlideChange, on
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  // Delete selected image
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key !== "Delete" && e.key !== "Backspace") return;
@@ -36,7 +35,6 @@ const SlideCarousel = ({ slides, activeIndex, customThemeData, onSlideChange, on
     return () => window.removeEventListener("keydown", handleKeyDown, true);
   }, [selectedImg, slides, onUpdateSlide]);
 
-  // Lock swiper when image selected
   useEffect(() => {
     if (swiperInstance && !swiperInstance.destroyed) {
       const isLocked = selectedImg.imgIndex !== null;

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { RotateCcw, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { resetPassword } from '@/services/authService';
-
+import { Input } from '@/components';
 const ResetPassword = () => {
   const navigate = useNavigate();
   const { token } = useParams();
@@ -41,7 +41,7 @@ const ResetPassword = () => {
         <h2 className="text-2xl font-bold mb-6">Set New Password</h2>
 
         <form onSubmit={handleSubmit} className="text-left space-y-4">
-          <input
+          <Input
             type="password"
             placeholder="New Password"
             required
@@ -51,7 +51,7 @@ const ResetPassword = () => {
             className="w-full p-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-green-600 outline-none"
           />
 
-          <input
+          <Input
             type="password"
             placeholder="Confirm New Password"
             required

@@ -38,7 +38,7 @@ const BillingPage = () => {
       setTimeout(async () => {
         await fetchUserData();
         sessionStorage.removeItem("payment_handled");
-        toast.success("Payment successful! Credits added. 🚀", { id: "payment-success" });
+        toast.success("Payment successful! Credits added.", { id: "payment-success" });
       }, 4000);
     }
 
@@ -70,7 +70,6 @@ const BillingPage = () => {
   return (
     <div className="p-6 md:p-8 max-w-5xl mx-auto w-full h-full overflow-y-auto bg-background">
 
-      {/* Header */}
       <div className="mb-6 text-center md:text-left">
         <h1 className="text-2xl md:text-3xl font-bold flex items-center justify-center md:justify-start gap-3 text-foreground">
           <CreditCard className="text-blue-600" size={28} />
@@ -83,7 +82,6 @@ const BillingPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto mt-6 items-stretch">
 
-        {/* Current Balance */}
         <div className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col justify-center items-center text-center min-h-[240px]">
           <div className="bg-blue-100 dark:bg-blue-900/30 w-14 h-14 flex items-center justify-center rounded-full mb-3">
             <Zap className="text-blue-600 dark:text-blue-400" size={28} />
@@ -98,7 +96,6 @@ const BillingPage = () => {
           )}
         </div>
 
-        {/* Purchase Card */}
         <div className="border-2 border-blue-600 rounded-2xl p-6 bg-blue-50/30 dark:bg-blue-900/10 relative shadow-lg flex flex-col min-h-[240px] mt-5 lg:mt-0">
           <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2 w-max">
             <span className="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">

@@ -2,17 +2,14 @@ import * as React from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 
-// Context 
 const AlertDialogContext = React.createContext({});
 
-// Root 
 const AlertDialog = ({ open, onOpenChange, children }) => (
   <AlertDialogContext.Provider value={{ open, onOpenChange }}>
     {children}
   </AlertDialogContext.Provider>
 );
 
-// Trigger 
 const AlertDialogTrigger = ({ children, asChild }) => {
   const { onOpenChange } = React.useContext(AlertDialogContext);
   if (asChild && React.isValidElement(children)) {
@@ -21,11 +18,9 @@ const AlertDialogTrigger = ({ children, asChild }) => {
   return <button onClick={() => onOpenChange(true)}>{children}</button>;
 };
 
-//  Portal + Overlay + Content 
 const AlertDialogContent = React.forwardRef(({ className, children, ...props }, ref) => {
   const { open, onOpenChange } = React.useContext(AlertDialogContext);
 
-  // Close on Escape key
   React.useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "Escape") onOpenChange(false);
@@ -34,7 +29,6 @@ const AlertDialogContent = React.forwardRef(({ className, children, ...props }, 
     return () => document.removeEventListener("keydown", handleKey);
   }, [open, onOpenChange]);
 
-  // Lock body scroll when open
   React.useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
     else document.body.style.overflow = "";
@@ -45,12 +39,10 @@ const AlertDialogContent = React.forwardRef(({ className, children, ...props }, 
 
   return createPortal(
     <div className="fixed inset-0 z-[9999] flex items-center justify-center">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm"
         onClick={() => onOpenChange(false)}
       />
-      {/* Dialog box */}
       <div
         ref={ref}
         role="alertdialog"
@@ -69,12 +61,10 @@ const AlertDialogContent = React.forwardRef(({ className, children, ...props }, 
 });
 AlertDialogContent.displayName = "AlertDialogContent";
 
-// Header 
 const AlertDialogHeader = ({ className, ...props }) => (
   <div className={cn("flex flex-col space-y-2 text-left", className)} {...props} />
 );
 
-// Footer 
 const AlertDialogFooter = ({ className, ...props }) => (
   <div
     className={cn("flex flex-col-reverse sm:flex-row sm:justify-end gap-2", className)}
@@ -82,7 +72,6 @@ const AlertDialogFooter = ({ className, ...props }) => (
   />
 );
 
-// Title 
 const AlertDialogTitle = React.forwardRef(({ className, ...props }, ref) => (
   <h2
     ref={ref}
@@ -92,7 +81,6 @@ const AlertDialogTitle = React.forwardRef(({ className, ...props }, ref) => (
 ));
 AlertDialogTitle.displayName = "AlertDialogTitle";
 
-// Description 
 const AlertDialogDescription = React.forwardRef(({ className, ...props }, ref) => (
   <p
     ref={ref}
@@ -102,7 +90,6 @@ const AlertDialogDescription = React.forwardRef(({ className, ...props }, ref) =
 ));
 AlertDialogDescription.displayName = "AlertDialogDescription";
 
-// Action 
 const AlertDialogAction = React.forwardRef(({ className, onClick, children, ...props }, ref) => {
   const { onOpenChange } = React.useContext(AlertDialogContext);
   return (
@@ -127,7 +114,6 @@ const AlertDialogAction = React.forwardRef(({ className, onClick, children, ...p
 });
 AlertDialogAction.displayName = "AlertDialogAction";
 
-// Cancel button 
 const AlertDialogCancel = React.forwardRef(({ className, children, ...props }, ref) => {
   const { onOpenChange } = React.useContext(AlertDialogContext);
   return (

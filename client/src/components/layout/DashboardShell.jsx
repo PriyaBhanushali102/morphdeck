@@ -27,14 +27,12 @@ const DashboardShell = () => {
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-background">
 
-      {/* Desktop Sidebar */}
       {isSidebarOpen && !isEditorPage && (
         <aside className="w-64 border-r bg-muted/10 shrink-0 h-full hidden md:block transition-all">
           <Sidebar />
         </aside>
       )}
 
-      {/* Mobile Sidebar Overlay */}
       <div
         className={`fixed inset-0 z-50 bg-black/50 md:hidden transition-opacity ${
           isSidebarOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
@@ -51,7 +49,6 @@ const DashboardShell = () => {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="flex flex-col flex-1 h-full min-w-0">
         {!isEditorPage && (
           <Navbar onMenuClick={toggleSidebar} />

@@ -2,7 +2,6 @@ import { useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
 import { v4 as uuidv4 } from "uuid";
 
-// Helper
 const isUserTyping = () => {
   const el = document.activeElement;
   if (!el) return false;
@@ -16,7 +15,6 @@ const isUserTyping = () => {
   return false;
 };
 
-// Hook
 const useSlideManager = (ppt, setPpt, activeIndex, setActiveIndex) => {
   const addSlide = useCallback(() => {
     if (!ppt) return;

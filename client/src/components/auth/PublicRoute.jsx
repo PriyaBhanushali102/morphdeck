@@ -4,7 +4,7 @@ import useAuthStore from "@/store/useAuthStore";
 const PublicRoute = () => {
   const { isAuthenticated, _hasHydrated } = useAuthStore();
   if (!_hasHydrated) return null;
-  return isAuthenticated ? <Navigate to="/" replace /> : <Outlet />;
+  return isAuthenticated ? <Navigate to="/home" replace /> : <Outlet />;
 };
 
 export default PublicRoute;

@@ -53,7 +53,7 @@ const HomeChat = () => {
         ...prev,
         {
           role: "ai",
-          content: "🎉 Presentation generated! Redirecting you to the editor...",
+          content: "Presentation generated! Redirecting you to the editor...",
         },
       ]);
       toast.success("Presentation Created!");

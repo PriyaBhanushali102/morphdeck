@@ -27,7 +27,7 @@ const Login = () => {
       });
       if (response.success) {
         toast.success("Welcome back!");
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       const message = error.response?.data?.message;

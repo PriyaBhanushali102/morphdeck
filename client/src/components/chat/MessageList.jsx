@@ -20,7 +20,6 @@ const MessageList = ({ messages, loading }) => {
             key={msg._id || `${msg.role}-${index}`}
             className={cn("flex gap-4", msg.role === "user" ? "justify-end" : "justify-start")}
           >
-            {/* AI Avatar */}
             {msg.role === "ai" && (
               <Avatar className="h-8 w-8 border border-border">
                 <AvatarFallback className="bg-primary text-primary-foreground">
@@ -29,7 +28,6 @@ const MessageList = ({ messages, loading }) => {
               </Avatar>
             )}
 
-            {/* Bubble */}
             <div className={cn(
               "relative px-5 py-3.5 text-sm md:text-base leading-relaxed max-w-[85%] shadow-sm",
               msg.role === "user"
@@ -39,7 +37,6 @@ const MessageList = ({ messages, loading }) => {
               {msg.content}
             </div>
 
-            {/* User Avatar */}
             {msg.role === "user" && (
               <Avatar className="h-8 w-8 border border-border">
                 <AvatarFallback className="bg-muted text-muted-foreground">
@@ -50,7 +47,6 @@ const MessageList = ({ messages, loading }) => {
           </div>
         ))}
 
-        {/* Loading */}
         {loading && (
           <div className="flex gap-4">
             <Avatar className="h-8 w-8 border border-border animate-pulse">

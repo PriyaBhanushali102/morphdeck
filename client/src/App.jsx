@@ -20,6 +20,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import NotFound from './pages/NotFound';
 import ErrorBoundary from './components/ErrorBoundary';
+import LandingPage from "./pages/LandingPage";
+
 function App() {
   return (
      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" attribute="class">
@@ -31,7 +33,7 @@ function App() {
         />
         
         <Routes>
-            
+            <Route path="/" element={<LandingPage />} />
           <Route path="/view/:id" element={<PresentationEditor />} />
 
           <Route element={<PublicRoute />}>
@@ -44,7 +46,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route element={<DashboardShell />}>
-              <Route path="/" element={<HomeChat />} />
+              <Route path="/home" element={<HomeChat />} />
               <Route path="/library" element={<Library />} />
               <Route path="/trash" element={<Trash />} />
               <Route path="/presentation/:id" element={<PresentationEditor />} />

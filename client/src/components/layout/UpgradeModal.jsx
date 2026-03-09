@@ -29,12 +29,10 @@ const UpgradeModal = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
       <div className="relative w-full max-w-md p-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl shadow-2xl">
 
-        {/* Close */}
         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 dark:hover:text-white">
           <X size={20} />
         </button>
 
-        {/* Header */}
         <div className="text-center mb-6">
           <div className="mx-auto bg-blue-100 dark:bg-blue-900/30 w-12 h-12 flex items-center justify-center rounded-full mb-4">
             <Zap className="text-blue-600 dark:text-blue-400" size={24} />
@@ -45,7 +43,6 @@ const UpgradeModal = ({ isOpen, onClose }) => {
           </p>
         </div>
 
-        {/* Pricing Card */}
         <div className="border border-blue-200 dark:border-blue-900 rounded-lg p-5 bg-blue-50/50 dark:bg-blue-900/10 relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">
             Most Popular

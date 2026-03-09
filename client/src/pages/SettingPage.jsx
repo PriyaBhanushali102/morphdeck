@@ -14,6 +14,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Input, Button } from '@/components';
 
 const SettingsPage = () => {
   useEffect(() => { document.title = "Settings - MorphDeck"; }, []);
@@ -114,7 +115,7 @@ const SettingsPage = () => {
                   <form onSubmit={handleChangePassword} className="space-y-5 max-w-md">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">Current Password</label>
-                      <input 
+                      <Input 
                         type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)}
                         className="w-full p-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
                         placeholder="••••••••" required
@@ -122,7 +123,7 @@ const SettingsPage = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">New Password</label>
-                      <input 
+                      <Input 
                         type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)}
                         className="w-full p-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
                         placeholder="••••••••" required minLength="8"
@@ -130,25 +131,24 @@ const SettingsPage = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">Confirm New Password</label>
-                      <input
+                      <Input
                         type="password" value={confirmPassword} required minLength="8"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         placeholder="••••••••"
                         className="w-full p-2.5 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
                       />
                     </div>
-                    <button 
+                    <Button 
                       type="submit" disabled={isUpdatingPassword}
                       className="flex items-center justify-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-lg hover:opacity-90 transition font-medium disabled:opacity-50 mt-2"
                     >
                       {isUpdatingPassword ? <Loader2 size={18} className="animate-spin" /> : <Lock size={18} />}
                       Update Password
-                    </button>
+                    </Button>
                   </form>
                 </div>
               </div>
 
-              {/* Danger Zone */}
               <div className="border border-red-500/20 rounded-xl shadow-sm overflow-hidden">
                 <div className="px-6 py-5 border-b border-red-500/20 bg-red-500/5 dark:bg-red-500/10">
                   <h2 className="text-lg font-semibold text-red-600 dark:text-red-400">Danger Zone</h2>
@@ -172,7 +172,6 @@ const SettingsPage = () => {
             </div>
           )}
 
-          {/* Placeholders tabs */}
           {activeTab === 'preferences' && (
             <div className="bg-card border border-border rounded-xl p-12 text-center text-muted-foreground animate-in fade-in duration-300">
               <SlidersHorizontal size={32} className="mx-auto mb-4 opacity-50" />

@@ -39,14 +39,12 @@ const ProfilePage = () => {
   return (
     <div className="h-full w-full overflow-y-auto bg-muted/10">
 
-      {/* Banner */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-700 h-48 w-full relative">
         <div className="absolute inset-0 bg-black/10" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 pb-12">
 
-        {/* Identity */}
         <div className="relative -mt-16 mb-8 flex flex-col md:flex-row items-center md:items-end gap-6">
           <div className="h-32 w-32 rounded-full border-4 border-white dark:border-gray-900 bg-white dark:bg-gray-800 flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
             {user?.avatar ? (
@@ -67,7 +65,7 @@ const ProfilePage = () => {
             </div>
           </div>
 
-          <button
+          <Button
             onClick={() => setIsEditing(!isEditing)}
             className={`mb-4 md:mb-2 flex items-center gap-2 px-4 py-2 rounded-full shadow-sm transition text-sm font-medium border ${
               isEditing
@@ -76,10 +74,9 @@ const ProfilePage = () => {
             }`}
           >
             <Edit3 size={16} /> {isEditing ? "Close Editing" : "Edit Profile"}
-          </button>
+          </Button>
         </div>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           <div className="md:col-span-1 space-y-6">

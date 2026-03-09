@@ -17,7 +17,6 @@ const SuggestionCard = ({ icon: Icon, title, subtitle, onClick }) => {
             )}
         >
             <CardContent className="p-4 flex flex-col items-start gap-3">
-                {/* Icon Box */}
                 <div className="p-2.5 rounded-xl transition-colors bg-blue-500/10 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white">
                     <Icon size={20} />
                 </div>

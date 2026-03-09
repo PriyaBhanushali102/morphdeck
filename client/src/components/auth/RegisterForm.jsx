@@ -28,7 +28,7 @@ const Register = () => {
       });
       if (response.success) {
         toast.success("Account created successfully!");
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       const res = error.response?.data;

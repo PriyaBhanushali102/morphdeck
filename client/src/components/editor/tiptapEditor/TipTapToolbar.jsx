@@ -73,14 +73,12 @@ const TipTapToolbar = ({ editor }) => {
   return (
     <div ref={toolbarRef} className="flex flex-col gap-1 p-1.5 bg-white dark:bg-gray-800 border border-gray-800 dark:border-gray-700 rounded-md shadow-lg w-max text-slate-900 dark:text-slate-100">
 
-      {/* Typography */}
       <div className="flex items-center gap-1">
         <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()}      className={`p-1 rounded hover:bg-gray-100 ${editor.isActive('bold')      ? 'bg-gray-200' : ''}`}><Bold size={14} /></ToolbarButton>
         <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()}    className={`p-1 rounded hover:bg-gray-100 ${editor.isActive('italic')    ? 'bg-gray-200' : ''}`}><Italic size={14} /></ToolbarButton>
         <ToolbarButton onClick={() => editor.chain().focus().toggleUnderline().run()} className={`p-1 rounded hover:bg-gray-100 ${editor.isActive('underline') ? 'bg-gray-200' : ''}`}><Underline size={14} /></ToolbarButton>
         <ToolbarButton onClick={() => editor.chain().focus().toggleStrike().run()}    className={`p-1 rounded hover:bg-gray-100 ${editor.isActive('strike')    ? 'bg-gray-200' : ''}`}><Strikethrough size={14} /></ToolbarButton>
 
-        {/* Font Size */}
         <select
           className="h-7 text-xs border border-gray-200 dark:border-gray-600 rounded px-1 bg-transparent cursor-pointer outline-none hover:bg-gray-50 dark:hover:bg-gray-700"
           onMouseDown={(e) => e.stopPropagation()}
@@ -92,7 +90,6 @@ const TipTapToolbar = ({ editor }) => {
           ))}
         </select>
 
-        {/* Font Family */}
         <select
           className="h-7 text-xs border rounded px-1 bg-background cursor-pointer"
           onMouseDown={(e) => e.stopPropagation()}
@@ -104,7 +101,6 @@ const TipTapToolbar = ({ editor }) => {
           ))}
         </select>
 
-        {/* AI Rewrite */}
         <div className="relative">
           <button
             onClick={() => setOpenMenu(openMenu === 'ai' ? null : 'ai')}
@@ -135,7 +131,6 @@ const TipTapToolbar = ({ editor }) => {
 
       <div className="w-full h-px bg-gray-200 dark:bg-gray-700 my-0.5" />
 
-      {/* Layout + Colors */}
       <div className="flex items-center gap-1">
         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('left').run()}   className="p-1 rounded hover:bg-gray-100"><AlignLeft size={14} /></ToolbarButton>
         <ToolbarButton onClick={() => editor.chain().focus().setTextAlign('center').run()} className="p-1 rounded hover:bg-gray-100"><AlignCenter size={14} /></ToolbarButton>
@@ -145,7 +140,6 @@ const TipTapToolbar = ({ editor }) => {
         <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} className="p-1 rounded hover:bg-gray-100"><ListOrdered size={14} /></ToolbarButton>
         <Divider />
 
-        {/* Text Color */}
         <div className="relative">
           <button
             onClick={() => setOpenMenu(openMenu === 'text' ? null : 'text')}
@@ -169,7 +163,6 @@ const TipTapToolbar = ({ editor }) => {
           )}
         </div>
 
-        {/* Highlight Color */}
         <div className="relative">
           <button
             onClick={() => setOpenMenu(openMenu === 'highlight' ? null : 'highlight')}

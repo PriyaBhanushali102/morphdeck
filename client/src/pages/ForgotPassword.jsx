@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { forgotPassword } from '@/services/authService';
 
 const ForgotPassword = () => {
-  const [email, setEmail]     = useState('');
+  const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
   
@@ -30,7 +30,6 @@ const ForgotPassword = () => {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="bg-card w-full max-w-md p-8 rounded-2xl border border-border text-center shadow-lg">
 
-        {/* Icon */}
         <div className="mx-auto bg-blue-100 dark:bg-blue-900/30 w-16 h-16 flex items-center justify-center rounded-full mb-6 text-blue-600">
           <KeyRound size={32} />
         </div>

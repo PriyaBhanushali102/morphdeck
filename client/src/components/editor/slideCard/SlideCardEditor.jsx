@@ -22,7 +22,7 @@ const SlideCardEditor = ({
     try {
       const result = await generateAiImage(slide.title);
       if (result.success) {
-        const autoX     = currentLayout === "split_right" ? "58%" : "5%";
+        const autoX = currentLayout === "split_right" ? "58%" : "5%";
         const newImages = [...(slide.images || []), {
           url: result.url,
           x: autoX, y: "20%", w: "38%", h: "60%",
@@ -81,7 +81,6 @@ const SlideCardEditor = ({
     >
       <CardContent className={`h-full flex flex-col p-8 md:p-10 overflow-visible relative ${alignmentClass}`}>
 
-        {/* AI Image Button */}
         {(currentLayout === "split_left" || currentLayout === "split_right") && (
           <Button
             onClick={handleGenerateAiImage}
@@ -94,7 +93,6 @@ const SlideCardEditor = ({
         )}
 
         <div className={textContainerClass}>
-          {/* Title */}
           <Textarea
             rows={1}
             className={`${sharedTitleClass} border-none shadow-none p-0 focus-visible:ring-0 bg-transparent resize-none overflow-hidden min-h-[40px]`}
@@ -107,10 +105,8 @@ const SlideCardEditor = ({
             }}
           />
 
-          {/* Accent Bar */}
           <div className="h-1.5 w-28 rounded-full mb-4 shrink-0" style={{ backgroundColor: theme.colors.accent }} />
 
-          {/* Bullets */}
           <ul className="flex-1 space-y-3 w-full relative z-10">
             {slide.content.map((item, i) => (
               <li
@@ -153,7 +149,6 @@ const SlideCardEditor = ({
           </ul>
         </div>
 
-        {/* Images */}
         <div className="absolute inset-0 z-[100] pointer-events-none">
           {(slide.images || []).map((img, i) => (
             <div key={i} className="pointer-events-auto">
@@ -168,7 +163,6 @@ const SlideCardEditor = ({
           ))}
         </div>
 
-        {/* Slide Number */}
         <div
           className="absolute bottom-4 right-8 text-sm opacity-40 shrink-0 pointer-events-none"
           style={{ color: theme.colors.text }} 

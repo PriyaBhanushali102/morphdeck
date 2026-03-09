@@ -17,7 +17,6 @@ const CreditWallet = () => {
       <div className="p-4 mt-auto border-t border-border shrink-0">
         <div className="bg-muted/50 rounded-lg p-3 border border-border">
 
-          {/* Credits Count */}
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Credits</span>
             <span className={`text-sm font-bold ${isLow ? "text-red-500" : ""}`}>{userCredits}</span>

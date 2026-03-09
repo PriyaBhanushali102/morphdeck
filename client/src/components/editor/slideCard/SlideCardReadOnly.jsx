@@ -9,18 +9,15 @@ const SlideCardReadOnly = ({ slide, index, totalSlides, theme, currentLayout, al
   >
     <CardContent className={`h-full flex flex-col px-[6%] pt-[4%] pb-[4%] justify-center ${alignmentClass}`}>
       <div className={textContainerClass}>
-        {/* Title */}
         <h1 style={{ color: theme.colors.text, fontSize: "clamp(2.2rem, 4.5vw, 4rem)", marginBottom: "0.3em" }}>
           {slide.title}
         </h1>
 
-        {/* Accent Bar */}
         <div
           className={`shrink-0 rounded-full mb-8 ${currentLayout === 'title_center' ? 'mx-auto' : ''}`}
           style={{ backgroundColor: theme.colors.accent, height: "5px", width: "130px" }}
         />
 
-        {/* Bullets */}
         <ul className="flex flex-col justify-start gap-[1.8vh] w-full">
           {slide.content.map((item, i) => (
             <li key={i} className={`flex items-start gap-4 mb-2 ${currentLayout === 'title_center' ? 'justify-center' : ''}`}>
@@ -40,7 +37,6 @@ const SlideCardReadOnly = ({ slide, index, totalSlides, theme, currentLayout, al
         </ul>
       </div>
 
-      {/* Images */}
       <div className="absolute inset-0 z-[100] pointer-events-none">
         {(slide.images || []).map((img, i) => (
           <div key={i}>
@@ -49,7 +45,6 @@ const SlideCardReadOnly = ({ slide, index, totalSlides, theme, currentLayout, al
         ))}
       </div>
 
-      {/* Slide Number */}
       <div
         className="absolute bottom-4 right-8 opacity-40 text-xs md:text-sm"
         style={{ color: theme.colors.text }}

@@ -55,7 +55,6 @@ const EditorToolbar = ({
                 onChange={handleFileChange}
             />
             
-            {/* Left Section */}
             <div className="flex items-center gap-1 flex-1 min-w-0">
                 <Button 
                     variant="ghost" 
@@ -82,7 +81,6 @@ const EditorToolbar = ({
                 </div>
             </div>
             
-            {/* Right Section */}
             <div className="flex items-center gap-1 md:gap-2 shrink-0">
 
                 <div className="flex items-center border-r pr-1 md:pr-2 mr-1 md:mr-2 gap-1">
@@ -104,7 +102,6 @@ const EditorToolbar = ({
                     <ImageIcon className="h-5 w-5 md:h-4 md:w-4" />
                 </Button>
                 
-                {/* Layout Picker */}
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="sm" className="flex items-center gap-2" title="Change Layout">
@@ -127,7 +124,6 @@ const EditorToolbar = ({
                     </DropdownMenuContent>
                 </DropdownMenu>
 
-                {/* Theme Picker */}
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="ghost" size="sm" className="flex items-center gap-2">
@@ -160,7 +156,6 @@ const EditorToolbar = ({
                     </DropdownMenuContent>
                 </DropdownMenu>
 
-                {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-2">
                 <Button variant="ghost" size="sm" onClick={onShare}>
                     <Share2 className="mr-2 h-4 w-4" /> 
@@ -180,12 +175,10 @@ const EditorToolbar = ({
                 </Button>
                 </div>
 
-                {/* Mobile Save */}
                 <Button size="icon" variant="ghost" onClick={onSave} disabled={isSaving} className="md:hidden">
                     {isSaving ? <Loader2 className="h-5 w-5 animate-spin" /> : <Save className="h-5 w-5" />}
                 </Button>
 
-                {/* Mobile More Menu */}
                 <div className="md:hidden">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -212,7 +205,6 @@ const EditorToolbar = ({
 
             </div>
 
-            {/* Custom Theme Modal */}
             {showThemeModal && (
                 <div className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center">
                     <CustomThemeBuilder 
