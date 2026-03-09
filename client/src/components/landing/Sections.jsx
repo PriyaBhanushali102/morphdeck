@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import { Badge, Counter, MagneticBtn } from "./Ui"
 import SlidePreview from "./SlidePreview";
 import { FEATURES, STEPS, STATS, FREE_FEATURES, PRO_FEATURES } from "@/config/editorConstants"
