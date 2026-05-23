@@ -9,7 +9,7 @@ import 'swiper/css/effect-fade';
 
 const SlideCarousel = ({ slides, activeIndex, customThemeData, onSlideChange, onUpdateSlide, viewMode = "default", activeTheme }) => {
   const [swiperInstance, setSwiperInstance] = useState(null);
-  const [selectedImg, setSelectedImg]       = useState({ slideIndex: null, imgIndex: null });
+  const [selectedImg, setSelectedImg] = useState({ slideIndex: null, imgIndex: null });
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -18,7 +18,7 @@ const SlideCarousel = ({ slides, activeIndex, customThemeData, onSlideChange, on
       if (e.key !== "Delete" && e.key !== "Backspace") return;
       if (selectedImg.slideIndex === null || selectedImg.imgIndex === null) return;
 
-      const el  = document.activeElement;
+      const el = document.activeElement;
       const tag = el?.tagName?.toLowerCase();
       if (tag === "input" || tag === "textarea") return;
       if (el?.classList?.contains("ProseMirror") || el?.closest?.(".ProseMirror")) return;
@@ -86,7 +86,7 @@ const SlideCarousel = ({ slides, activeIndex, customThemeData, onSlideChange, on
               swiper.params.navigation.nextEl = nextRef.current;
             }
           }}
-          keyboard={{ enabled: true }}
+          keyboard={{ enabled: true, onlyInViewport: false, pageUpDown: false }}
           onSwiper={setSwiperInstance}
           onSlideChange={(swiper) => onSlideChange(swiper.activeIndex)}
           initialSlide={activeIndex}

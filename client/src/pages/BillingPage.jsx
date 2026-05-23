@@ -33,13 +33,36 @@ const BillingPage = () => {
     const query = new URLSearchParams(location.search);
 
     if (query.get("success") && !sessionStorage.getItem("payment_handled")) {
+      const sessionId = query.get("session_id");
       sessionStorage.setItem("payment_handled", "true");
       window.history.replaceState(null, '', location.pathname);
-      setTimeout(async () => {
-        await fetchUserData();
-        sessionStorage.removeItem("payment_handled");
-        toast.success("Payment successful! Credits added.", { id: "payment-success" });
-      }, 4000);
+
+      (async () => {
+        try {
+          if (sessionId) {
+            // Verify payment directly with Stripe via backend — reliable in all environments
+            const result = await paymentService.verifyPayment(sessionId);
+            if (result.success) {
+              updateUser({ credits: result.credits });
+              toast.success("Payment successful! Credits added.", { id: "payment-success" });
+            } else {
+              // Fallback: re-fetch user profile
+              await fetchUserData();
+              toast.success("Payment successful! Credits added.", { id: "payment-success" });
+            }
+          } else {
+            // No session_id — wait briefly for webhook then re-fetch
+            await new Promise((r) => setTimeout(r, 4000));
+            await fetchUserData();
+            toast.success("Payment successful! Credits added.", { id: "payment-success" });
+          }
+        } catch {
+          await fetchUserData();
+          toast.success("Payment successful! Credits added.", { id: "payment-success" });
+        } finally {
+          sessionStorage.removeItem("payment_handled");
+        }
+      })();
     }
 
     if (query.get("canceled") && !sessionStorage.getItem("payment_handled")) {

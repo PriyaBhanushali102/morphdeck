@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import userService from '@/services/userService';
 import ProfileUpdateForm from '@/components/layout/ProfileUpdateForm';
 import useAuthStore from '@/store/useAuthStore';
+import { Button } from '@/components';
 
 const ProfilePage = () => {
   const user = useAuthStore((state) => state.user);
@@ -13,8 +14,8 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => { document.title = "Profile - MorphDeck"; }, []);
-  
-  const fetchUserData = useCallback(async () => { 
+
+  const fetchUserData = useCallback(async () => {
     try {
       const data = await userService.getUserProfile();
       if (data.success) updateUser(data.data);
@@ -33,7 +34,7 @@ const ProfilePage = () => {
     </div>
   );
 
-  const isPro = user?.plan === "pro" || user?.credits > 5; 
+  const isPro = user?.plan === "pro" || user?.credits > 5;
   const initial = user?.name ? user.name.charAt(0).toUpperCase() : "U";
 
   return (
@@ -67,11 +68,10 @@ const ProfilePage = () => {
 
           <Button
             onClick={() => setIsEditing(!isEditing)}
-            className={`mb-4 md:mb-2 flex items-center gap-2 px-4 py-2 rounded-full shadow-sm transition text-sm font-medium border ${
-              isEditing
+            className={`mb-4 md:mb-2 flex items-center gap-2 px-4 py-2 rounded-full shadow-sm transition text-sm font-medium border ${isEditing
                 ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
                 : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:shadow-md"
-            }`}
+              }`}
           >
             <Edit3 size={16} /> {isEditing ? "Close Editing" : "Edit Profile"}
           </Button>

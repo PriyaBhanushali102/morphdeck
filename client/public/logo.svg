@@ -1,0 +1,82 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="loopGradient" x1="190" y1="512" x2="835" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00B7FF"/>
+      <stop offset="0.45" stop-color="#7C3AED"/>
+      <stop offset="0.75" stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#FF8A00"/>
+    </linearGradient>
+    <linearGradient id="slideBlue" x1="210" y1="365" x2="475" y2="635" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="slideOrange" x1="555" y1="365" x2="825" y2="635" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5CF6"/>
+      <stop offset="0.55" stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="sparkGradient" x1="465" y1="330" x2="570" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7AD"/>
+      <stop offset="0.45" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+    <filter id="softGlow" x="100" y="240" width="824" height="540" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.45 0 0 0 0 0.15 0 0 0 0 1 0 0 0 0.45 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+    <filter id="sparkGlow" x="415" y="285" width="200" height="200" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 1 0 0 0 0 0.63 0 0 0 0 0.15 0 0 0 0.9 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="160" fill="#FFFFFF"/>
+
+  <!-- subtle background glow -->
+  <ellipse cx="340" cy="525" rx="210" ry="170" fill="#38BDF8" opacity="0.12"/>
+  <ellipse cx="690" cy="520" rx="220" ry="180" fill="#F97316" opacity="0.12"/>
+
+  <g filter="url(#softGlow)">
+    <!-- left slide card -->
+    <path d="M252 396H432C456.301 396 476 415.699 476 440V590C476 614.301 456.301 634 432 634H303L253 683V634H252C227.699 634 208 614.301 208 590V440C208 415.699 227.699 396 252 396Z" fill="url(#slideBlue)" opacity="0.96"/>
+    <path d="M266 435H418C429.046 435 438 443.954 438 455V581C438 592.046 429.046 601 418 601H290" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- right slide card -->
+    <rect x="552" y="396" width="264" height="238" rx="44" fill="url(#slideOrange)" opacity="0.96"/>
+    <rect x="592" y="436" width="184" height="126" rx="18" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="10"/>
+
+    <!-- infinity ribbon -->
+    <path d="M211 515C266 380 414 360 511 512C607 665 756 646 813 511C758 642 611 664 511 512C414 365 268 382 211 515Z" fill="url(#loopGradient)"/>
+    <path d="M211 515C266 380 414 360 511 512C607 665 756 646 813 511" stroke="#170F49" stroke-opacity="0.18" stroke-width="8" stroke-linecap="round"/>
+    <path d="M211 515C268 382 414 365 511 512C611 664 758 642 813 511" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <!-- slide content lines -->
+  <g opacity="0.78">
+    <rect x="270" y="467" width="116" height="16" rx="8" fill="#FFFFFF"/>
+    <rect x="270" y="510" width="168" height="16" rx="8" fill="#FFFFFF" opacity="0.75"/>
+    <rect x="270" y="552" width="140" height="16" rx="8" fill="#FFFFFF" opacity="0.65"/>
+  </g>
+
+  <!-- right slide chart/image icons -->
+  <g opacity="0.78" fill="#FFFFFF">
+    <rect x="603" y="552" width="28" height="52" rx="6"/>
+    <rect x="646" y="524" width="28" height="80" rx="6" opacity="0.82"/>
+    <rect x="689" y="489" width="28" height="115" rx="6" opacity="0.7"/>
+    <path d="M701 478C706 468 719 468 724 478L744 516H681L701 478Z" opacity="0.9"/>
+    <circle cx="737" cy="463" r="12"/>
+  </g>
+
+  <!-- AI sparkle -->
+  <g filter="url(#sparkGlow)">
+    <path d="M515 316C529 370 543 384 597 398C543 412 529 426 515 480C501 426 487 412 433 398C487 384 501 370 515 316Z" fill="url(#sparkGradient)"/>
+    <path d="M515 348C525 379 534 388 565 398C534 408 525 417 515 448C505 417 496 408 465 398C496 388 505 379 515 348Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- small sparkles -->
+  <path d="M604 340C609 360 615 366 635 371C615 376 609 382 604 402C599 382 593 376 573 371C593 366 599 360 604 340Z" fill="#FDBA74"/>
+  <path d="M468 416C472 432 477 437 493 441C477 445 472 450 468 466C464 450 459 445 443 441C459 437 464 432 468 416Z" fill="#6366F1"/>
+
+</svg>

@@ -10,9 +10,9 @@ import authService from "@/services/authService";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [loading, setLoading]         = useState(false);
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData]       = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -46,9 +46,11 @@ const Login = () => {
       <Card className="w-full max-w-md bg-card border-border shadow-2xl relative z-10">
         <CardHeader className="text-center space-y-1">
           <div className="flex justify-center mb-4">
-            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center border border-primary/20 shadow-inner">
-              <Presentation size={24} className="text-primary" />
-            </div>
+            <img
+              src="/logo.svg"
+              alt="MorphDeck Logo"
+              className="w-12 h-12"
+            />
           </div>
           <CardTitle className="text-2xl font-bold text-foreground">Welcome Back</CardTitle>
           <CardDescription className="text-muted-foreground">

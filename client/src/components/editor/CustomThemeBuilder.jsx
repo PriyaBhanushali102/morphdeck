@@ -45,7 +45,6 @@ const CustomThemeBuilder = ({ onApplyTheme, onClose, initialTheme }) => {
             </div>
 
             <div className="p-4 space-y-4">
-                {/* Live Preview Card */}
                 <div 
                     className="w-full h-24 rounded border shadow-inner p-3 flex flex-col justify-center"
                     style={{ backgroundColor: customTheme.colors.background, borderColor: customTheme.colors.border, fontFamily: customTheme.font }}
@@ -55,7 +54,6 @@ const CustomThemeBuilder = ({ onApplyTheme, onClose, initialTheme }) => {
                     <div className="w-1/3 h-1.5 rounded-full" style={{ backgroundColor: customTheme.colors.accent }} />
                 </div>
 
-                {/* Color Pickers */}
                 <div className="grid grid-cols-2 gap-4">
                     {Object.keys(customTheme.colors).map((key) => (
                         <div key={key} className="flex items-center justify-between bg-gray-50 dark:bg-gray-800 p-2 rounded border dark:border-gray-700">
@@ -70,7 +68,6 @@ const CustomThemeBuilder = ({ onApplyTheme, onClose, initialTheme }) => {
                     ))}
                 </div>
 
-                {/* Font Selector */}
                 <div className="pt-2">
                     <span className="text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 block">Slide Font</span>
                     <select 

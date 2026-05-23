@@ -20,25 +20,27 @@ const Sidebar = () => {
     useEffect(() => {
         const isStale = !lastFetched || Date.now() - lastFetched > STALE_AFTER_MS;
         if (isStale) {
-            fetchHistory(); 
+            fetchHistory();
         }
     }, []);
-    
+
     const itemClass = (path) => cn(
         "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium mb-1 transition-colors",
-        isActive(path) 
-        ? "bg-secondary text-secondary-foreground" 
-        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+        isActive(path)
+            ? "bg-secondary text-secondary-foreground"
+            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
     );
 
     return (
         <div className="h-full w-full flex flex-col border-r border-border/50 bg-card/80 backdrop-blur-xl transition-colors duration-300">
-            
+
             <div className="h-16 flex items-center px-4 border-b border-border/50 shrink-0">
                 <Link to="/home" className="flex items-center gap-3 group">
-                    <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground shadow-sm shadow-primary/20">
-                        <Presentation size={18} strokeWidth={2.5} />
-                    </div>
+                    <img
+                        src="/logo.svg"
+                        alt="MorphDeck Logo"
+                        className="w-12 h-12"
+                    />
                     <h1 className="text-lg font-bold text-foreground tracking-tight group-hover:text-primary transition-colors">
                         Morph<span className="text-primary">Deck</span>
                     </h1>
@@ -60,18 +62,18 @@ const Sidebar = () => {
                 </div>
                 <Link to="/library">
                     <div className={itemClass("/library")}>
-                        <LayoutGrid size={18}/>
+                        <LayoutGrid size={18} />
                         <span>My Library</span>
                     </div>
                 </Link>
 
                 <Link to="/trash">
                     <div className={itemClass("/trash")}>
-                        <Trash2 size={18}/>
+                        <Trash2 size={18} />
                         <span>Trash</span>
                     </div>
                 </Link>
-                
+
             </nav>
 
             <div className="flex-1 flex flex-col min-h-0 px-3 mt-4 overflow-hidden">
@@ -88,13 +90,13 @@ const Sidebar = () => {
 
                     {!loading && error && (
                         <div className="text-xs text-center py-4 text-red-400 italic px-2">
-                        {error}
-                        <button
-                            onClick={fetchHistory}
-                            className="block mx-auto mt-2 text-primary hover:underline"
-                        >
-                            Retry
-                        </button>
+                            {error}
+                            <button
+                                onClick={fetchHistory}
+                                className="block mx-auto mt-2 text-primary hover:underline"
+                            >
+                                Retry
+                            </button>
                         </div>
                     )}
 
@@ -108,9 +110,9 @@ const Sidebar = () => {
                         <Link to={`/presentation/${ppt._id}`} key={ppt._id}>
                             <div className={cn(
                                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors cursor-pointer mb-1 truncate",
-                                isActive(`/presentation/${ppt._id}`) 
-                                ? "bg-secondary text-secondary-foreground" 
-                                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                                isActive(`/presentation/${ppt._id}`)
+                                    ? "bg-secondary text-secondary-foreground"
+                                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                             )}>
                                 <MessageSquare size={16} className="shrink-0 opacity-70" />
                                 <span className="truncate">{ppt.topic}</span>
@@ -120,7 +122,7 @@ const Sidebar = () => {
 
                 </div>
             </div>
-            <CreditWallet/>
+            <CreditWallet />
         </div>
     )
 }

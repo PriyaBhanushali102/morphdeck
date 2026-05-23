@@ -7,11 +7,8 @@ const isUserTyping = () => {
   if (!el) return false;
   const tag = el.tagName.toLowerCase();
   if (tag === "input" || tag === "textarea" || tag === "select") return true;
-  if (el.isContentEditable) {
-    const isTipTap =
-      el.classList.contains("ProseMirror") || el.closest(".ProseMirror");
-    return !!isTipTap;
-  }
+  // Only block if focus is inside a TipTap ProseMirror editor
+  if (el.classList.contains("ProseMirror") || el.closest?.(".ProseMirror")) return true;
   return false;
 };
 
@@ -84,9 +81,14 @@ const useSlideManager = (ppt, setPpt, activeIndex, setActiveIndex) => {
     const handleKeyDown = (e) => {
       if (isUserTyping()) return;
 
-      if (e.key === "Delete" && (e.ctrlKey || e.metaKey)) deleteSlide();
+      // Delete key alone (no modifier) deletes the active slide
+      if (e.key === "Delete" && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) {
+        e.preventDefault();
+        deleteSlide();
+      }
 
-      if (e.key === "Enter") {
+      // Enter key adds a new slide after the current one
+      if (e.key === "Enter" && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey) {
         e.preventDefault();
         addSlide();
       }

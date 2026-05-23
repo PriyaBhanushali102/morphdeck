@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 5,
     },
+    lastProcessedSession: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true },
 );
